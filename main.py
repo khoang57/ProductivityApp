@@ -93,20 +93,11 @@ if __name__ == '__main__':
         ### Mode 1 - Morning ###
         if st.session_state.DefaultMode == "Morning":
             with col2:
-                tab1, tab2 = st.tabs(["Reflection", "Reminders"])
-                with tab1:
-                    st.title("Morning Reflection")
-                    st.caption("1. What must be done today?")
-                    st.caption("2. What specific virtues should you improve on?")
-                    st.caption("3. What do you have within you to face these challenges?")
-                with tab2:
-                    st.header("Patience")
-                    st.caption("Listen - First, try to understand other's viewpoints")
-                    st.caption("Judge by intention")
-                    st.caption("Discipline of Assent - Choose your reaction")
-                    st.header("Excellence")
-                    st.caption("Be Resolute - admirably purposeful, unwavering, and determined")
-                    st.caption("Be Industrious - don't let time waste away idling")
+                st.title("Morning Reflection")
+                st.caption("1. What must be done today for you to feel satisfied?")
+                st.caption("2. What opportunities do you have to improve on specific virtues?")
+                st.caption("3. What resources do you have to face these challenges? (Reminders/checklists)")
+
 
         ### Mode 2 - Evening ###
         if st.session_state.DefaultMode == "Evening":
@@ -119,7 +110,7 @@ if __name__ == '__main__':
         ### Mode 3 - Default ###
         if st.session_state.DefaultMode == "Default":
             with col2:
-                tab1, tab2 = st.tabs(["Quote","Values"])
+                tab1, tab2, tab3 = st.tabs(["Quote","Values","Reminders"])
                 with tab1:
                     if st.session_state.QuoteID == "Empty":
                         quote, num_lines = quotes()
@@ -134,25 +125,34 @@ if __name__ == '__main__':
                     with st.expander("Wisdom"):
                         st.caption("I want to be able to give others good advice")
                         st.caption("I want to make good decisions ")
-                        st.caption("I want to be a role model of a calm person")
+                        st.caption("I want to be an example for others")
                         st.caption("I want to address adversity with patience")
-                        st.caption("I want to remember what is in my control")
-                        st.caption("I want to avoid conflict with others when necessary and build cooperation")
+                        st.caption("I want to focus on what is in my control, and care less about other things")
+                        st.caption("I want to work to build with others")
                     with st.expander("Kindness"):
-                        st.caption("I want to be able to give others good advice")
-                        st.caption("I want to make good decisions")
-                        st.caption("I want to be a role model of a calm person")
-                        st.caption("I want to address adversity with patience")
-                        st.caption("I want to quickly understand what is in my control")
-                        st.caption("I want to avoid conflict with others when necessary and build cooperation")
+                        st.caption("I want to be patient and understanding of others")
+                        st.caption("I want to ease people's concerns")
+                        st.caption("I want to be a role model in the world I want to see")
                     with st.expander("Integrity"):
                         st.caption("I want to be able to make decisions I can be proud of")
-                        st.caption("I want to always uphold a high standard")
-                        st.caption("I want to avoid cutting corners")
+                        st.caption("I want to always uphold a high standard and avoid cutting corners")
                         st.caption("I want to use wisdom to determine when and where I should make a stand")
                     with st.expander("Resolution"):
                         st.caption("Admirably purposeful, determined, unwavering")
                         st.caption("No wasted days")
+                with tab3:
+                    st.header("Patience")
+                    st.caption("Listen, Don't Interrupt - First, try to understand other's viewpoints")
+                    st.caption("Discipline of Assent - Choose your reaction")
+                    st.caption("Don't get overly excited")
+                    st.header("Excellence")
+                    st.caption("Be Resolute - admirably purposeful, unwavering, and determined")
+                    st.caption("Be Industrious - don't let time waste away idling")
+                    st.header("Charisma")
+                    st.caption("Maintain eye contact")
+                    st.caption("Control your speech")
+                    st.caption("Control your body - eyes/unnecessary movement")
+
 
 
 #####################
@@ -205,8 +205,20 @@ if __name__ == '__main__':
         #### Mode 2 - Meeting ###
             if st.session_state.WorkMode == "Meeting":
                 with col2:
-                    for idx in range(0, len(meetingPrep())):
-                        st.subheader(meetingPrep()[idx, 0])
+                    #for idx in range(0, len(meetingPrep())):
+                    #    st.subheader(meetingPrep()[idx, 0])
+                    st.subheader("Listen")
+                    st.write("Wait for others to finish speaking")
+                    st.write("Withhold Judgement")
+                    st.subheader("Speak with Intention and Poise")
+                    st.write("Think before you speak")
+                    st.write("Speak slowly and clearly")
+                    st.write("No filler words")
+                    st.write("Acknowledge - Clarify and repeat")
+                    st.subheader("Body Language")
+                    st.write("Don't nod too often")
+                    st.write("Don't make too many movements")
+
 
         ### Mode 3 - Presentation ###
             if st.session_state.WorkMode == "Presentation":
@@ -228,12 +240,37 @@ if __name__ == '__main__':
     ##### Output based on modes #####
 
         with col1:
-            pass
+            with st.expander("Chest & Triceps"):
+                st.write("Incline Bench: 12/10/10/8 at 35- (IMPROVE FORM, consider lowering)")
+                st.write("Bench: 12/10/10/8 at 40 (Improve amount)") ## 12/10/10/8
+                st.write("Bench Flys: 3x12 at 25 (correct form)")
+                st.write("Tricep Kickback 3x12 at 22.5 (IMPROVE FORM)")
+
+            with st.expander("Back and Biceps"):
+                st.write("One Arm Dumbbell Row: 12/10/10/8/6 at 45+")
+                st.write("Standing Dumbell Row: 12/10/10/8/6 at 35 (Squeeze shoulders - 12x5)")
+                st.write("Dumbell Pullover: 12/10 at 40-")
+                st.write("Incline Dumbbell Curl: 3x10+ at 17.5 (do 12-- now)")
+                st.write("Standing Dumbbell Curl: 3x10+ at 17.5 (do 12-- now)")
+                st.write("Cross Body Hammer Curl: 2x10+ at 17.5 (do 12-- now)")
+
+
+            with st.expander("Legs and Shoulders"):
+                st.write("Dumbbell Lunge: 12/10/10/8 at 15+")
+                st.write("Dumbell Standing Calf Raise: 12/10 at 15")
+                st.write("Dumbbell Step Up: 3x12 at 30")
+                st.write("Dumbbell Squat Flys: 12/10/10/8 at 15+")
+                st.write("Dumbbell Stiff Leg Deadlift: 12/10/10/8 at 15+")
+                st.write("Seated Dumbbell Calf Raise: 15/12 at 15+")
+
+
         with col2:
             image = Image.open('elmo.jpg')
             st.image(image)
             st.metric(label="Next Set Time", value=(datetime.datetime.now()+datetime.timedelta(minutes=2)).strftime("%I:%M:%S %p"), delta="2 min")
             st.session_state.NextSetTime = st.number_input("Sets Completed", min_value=0, max_value=5, step=1, value=0)
+
+
 
 
 
@@ -265,22 +302,24 @@ if __name__ == '__main__':
                 with tab1:
                     mandatory_scored = st.number_input("Mandatory Points Scored", min_value=1, max_value=100, step=1, value = 1)
                     mandatory_failed = st.number_input("Mandatory Points Failed", min_value=0, max_value=100, step=1, value = 0)
-                    st.metric(label="Score", value=str(mandatory_scored) + "/"+ str(mandatory_failed+mandatory_scored))
                     st.metric(label="Percentage", value=str(mandatory_scored / (mandatory_failed + mandatory_scored)*100) +"%")
+                    st.metric(label="Score", value=str(mandatory_scored) + "/"+ str(mandatory_failed+mandatory_scored))
                 with tab2:
                     tasks_scored = st.number_input("Tasks Points Scored", min_value=1, max_value=100, step=1, value = 1)
                     tasks_failed = st.number_input("Tasks Points Failed", min_value=0, max_value=100, step=1, value = 0)
-                    st.metric(label="Score", value=str(tasks_scored) + "/"+ str(tasks_failed+tasks_scored))
                     st.metric(label="Percentage", value=str(tasks_scored / (tasks_failed + tasks_scored)*100) +"%")
+                    st.metric(label="Score", value=str(tasks_scored) + "/"+ str(tasks_failed+tasks_scored))
                 with tab3:
                     growth_scored = st.number_input("Growth Points Scored", min_value=1, max_value=100, step=1, value = 1)
                     growth_failed = st.number_input("Growth Points Failed", min_value=0, max_value=100, step=1, value = 0)
-                    st.metric(label="Score", value=str(growth_scored) + "/"+ str(growth_failed+growth_scored))
                     st.metric(label="Percentage", value=str(growth_scored / (growth_failed + growth_scored)*100) +"%")
+                    st.metric(label="Score", value=str(growth_scored) + "/"+ str(growth_failed+growth_scored))
                 st.button("Save Results")
                 # TODO: Store results
                 st.button("View Results")
                 # TODO: View results
+                st.button("Reset Results")
+                # TODO: Reset results
 
     #with clock:
         #asyncio.run(current_time(clock))
